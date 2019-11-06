@@ -33,41 +33,53 @@ function App() {
   };
 
   return (
-    <div className="container m-5 ">
-      <form onSubmit={sendRequest}>
-        <input
-          type="text"
-          onChange={changeHandler}
-          className="form-control col-8 "
-        />
-        <input type="submit" value="Search" className="btn btn-primary col-4" />
-      </form>
+    <div className="container-fluid mt-5">
+      <div className="bg-dark p-3 rounded">
+        <form onSubmit={sendRequest} className="form-row">
+          <div className="col">
+            {" "}
+            <input
+              type="text"
+              onChange={changeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="col-3">
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-success form-control"
+            />
+          </div>
+        </form>
+      </div>
+      <div className="container-fluid">
+        <table className="table mt-5 border-0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Picture</th>
+            </tr>
+          </thead>
 
-      <table className="container table mt-5">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Picture</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {pictures.length
-            ? pictures.map(pic => (
-                <tr key={pic.id}>
-                  <td>{pic.id}</td>
-                  <td>
-                    <img
-                      src={pic.urls.thumb}
-                      alt={pic.id}
-                      className="rounded"
-                    />
-                  </td>
-                </tr>
-              ))
-            : null}
-        </tbody>
-      </table>
+          <tbody>
+            {pictures.length
+              ? pictures.map(pic => (
+                  <tr key={pic.id}>
+                    <td>{pic.id}</td>
+                    <td>
+                      <img
+                        src={pic.urls.thumb}
+                        alt={pic.id}
+                        className="rounded"
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
