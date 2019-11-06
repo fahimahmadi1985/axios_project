@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "74f33e9cc58343c781db38a8adf4aa4e",
+    "revision": "87e0dd0e9535f452d8a74263c3593a9e",
     "url": "/axios_project/index.html"
   },
   {
-    "revision": "c3991f753f2ac3b0c3df",
+    "revision": "0a29714b540f3a3f52cb",
     "url": "/axios_project/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/axios_project/static/js/2.b80a647e.chunk.js"
   },
   {
-    "revision": "c3991f753f2ac3b0c3df",
-    "url": "/axios_project/static/js/main.ed470ef3.chunk.js"
+    "revision": "0a29714b540f3a3f52cb",
+    "url": "/axios_project/static/js/main.b7f22da8.chunk.js"
   },
   {
     "revision": "a5deece5135199629d27",
