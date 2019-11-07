@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -16,11 +17,11 @@ function App() {
     e.preventDefault();
     e.target.name === "inc"
       ? setPagenum(pageNum + 1)
-      : e.target.name === "dec" &&
-        pageNum > 1 &&
-        /* hey omar the next line is a ternary condition */ setPagenum(
+      : e.target.name === "dec" && pageNum > 1
+      ? /* hey omar the next line is a ternary condition */ setPagenum(
           pageNum - 1
-        );
+        )
+      : setPagenum(e.target.value);
     setShouldRef(true);
     console.log("pageNum: ", pageNum);
   };
@@ -32,7 +33,7 @@ function App() {
           params: {
             query: term,
             page: pageNum,
-            per_page: 21
+            per_page: 20
           },
           headers: {
             Authorization:
@@ -54,7 +55,7 @@ function App() {
       .get("https://api.unsplash.com/search/photos", {
         params: {
           query: term,
-          per_page: 21
+          per_page: 20
         },
         headers: {
           Authorization:
@@ -71,7 +72,7 @@ function App() {
 
   return (
     <div className="container-fluid mt-5">
-      <div className="bg-dark p-3 rounded">
+      <div className="bg-secondary p-4 mb-5 rounded">
         <form onSubmit={sendRequest} className="form-row">
           <div className="col">
             {" "}
@@ -79,6 +80,8 @@ function App() {
               type="text"
               onChange={changeHandler}
               className="form-control"
+              style={{ height: "50px" }}
+              placeholder="Picture title ..."
             />
           </div>
           <div className="col-3">
@@ -86,41 +89,45 @@ function App() {
               type="submit"
               value="Search"
               className="btn btn-success form-control"
+              style={{ height: "50px" }}
             />
           </div>
         </form>
       </div>
       <div className="container-fluid">
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap border-1">
           {pictures.length
             ? pictures.map(pic => (
                 <img
                   src={pic.urls.thumb}
                   alt={pic.alt_description}
                   key={pic.id}
-                  style={{ width: "100px", height: "120px" }}
+                  style={{ width: "150px", height: "150px" }}
+                  className="m-1 rounded border-1"
                 />
               ))
             : null}
         </div>
-        <div className="d-flex justify-content-between">
-          <button
-            type="button"
-            onClick={pageChange}
-            name="dec"
-            className="form-control col-3 btn btn-primary"
-          >
-            {"<<"}
-          </button>
-          <button
-            type="button"
-            onClick={pageChange}
-            name="inc"
-            className="form-control col-3 btn btn-primary"
-          >
-            {">>"}
-          </button>
-        </div>
+        {pictures.length ? (
+          <div className="d-flex justify-content-between mt-4">
+            <button
+              type="button"
+              onClick={pageChange}
+              name="dec"
+              className="form-control col-3 btn btn-primary"
+            >
+              {"<<"}
+            </button>
+            <button
+              type="button"
+              onClick={pageChange}
+              name="inc"
+              className="form-control col-3 btn btn-primary"
+            >
+              {">>"}
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
