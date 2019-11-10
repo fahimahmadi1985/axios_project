@@ -2,25 +2,58 @@ body {
   background-color: #282c34;
 }
 
-.App {
-  text-align: center;
+.pic:hover {
+  border: red 3px solid !important;
 }
 
-.App-logo {
-  height: 40vmin;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: visible !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal-content {
+  background-color: rgb(34, 32, 32) !important;
+  background-size: auto auto !important;
+  -ms-background-size: auto;
+  -o-background-size: auto;
+  -moz-background-size: auto;
+  -webkit-background-size: auto;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  height: 100%;
+  width: 80%;
+  overflow: visible !important;
 }
 
-.App-link {
-  color: #09d3ac;
+.close {
+  color: #960303;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 5px;
+  width: 3%;
+  height: 3%;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pic-info {
+  font-size: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+  position: absolute !important;
+  bottom: 10px;
 }
